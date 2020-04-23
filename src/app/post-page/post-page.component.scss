@@ -1,0 +1,31 @@
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.content__left {
+  flex-grow: 1;
+  margin-right: 20px;
+}
+
+.content__left p:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.content__right {
+  flex-basis: 200px;
+  flex-shrink: 0;
+}
+
+.content__right img {
+  border-radius: 50%;
+}
+
+.content__title {
+  font-size: 1.8rem;
+  font-weight: 600;
+}
+
+.content__short {
+  font-size: 1.2rem;
+}

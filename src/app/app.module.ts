@@ -3,18 +3,22 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { PostsComponent } from './posts/posts.component';
-import { ErrorPageComponent } from './error-page/error-page.component';
+import {HttpClientModule} from "@angular/common/http";
+import { PostPageComponent } from './post-page/post-page.component';
+import {FormsModule} from '@angular/forms';
+import {SearchPipe} from './shared/search.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PostsComponent,
-    ErrorPageComponent
+    PostPageComponent,
+    SearchPipe
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

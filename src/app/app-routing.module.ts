@@ -1,12 +1,10 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import {PostsComponent} from './posts/posts.component';
-import {ErrorPageComponent} from './error-page/error-page.component';
+import {AppComponent} from "./app.component";
 
 const routes: Routes = [
-  {path: '', component: PostsComponent},
-  {path: 'error', component: ErrorPageComponent},
-  {path: '**', redirectTo: '/error'}
+  {path: '', component: AppComponent},
+  {path: '**', redirectTo: '/'}
 ];
 
 @NgModule({

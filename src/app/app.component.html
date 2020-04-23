@@ -1,1 +1,35 @@
-<router-outlet></router-outlet>
+<div class="container">
+  <h1 class="center">Test Work</h1>
+  <div *ngIf="posts.length else loading;" class="posts">
+    <div class="posts__left">
+      <input [(ngModel)]="search" type="text" placeholder="Live filter">
+      <ul class="posts__list">
+        <li *ngFor="let post of posts | searchPosts:search">
+          <div *ngIf="!post.deleted else delete" class="posts__item">
+            <a (click)="updatePost({id: post.id, name: post.name, info: post.shortInfo, more: post.more}, $event)" href="#">
+              <p>{{post.name}}</p>
+              <p>{{post.shortInfo}}</p>
+            </a>
+            <button (click)="deletePost(post.id)" class="posts__close">x</button>
+          </div>
+          <ng-template #delete>
+            <div class="posts__item posts__item--delete">
+              <p>Deleted {{post.name}}</p>
+              <p>Deleted at {{post.deleteDate | date: 'dd.MM.yyy HH:mm'}}</p>
+              <button (click)="restorePost(post.id)" class="posts__close">R</button>
+            </div>
+          </ng-template>
+        </li>
+      </ul>
+    </div>
+    <div class="posts__right">
+      <app-post-page
+        [posts]="posts"
+        [selectPost]="selectPost"
+      ></app-post-page>
+    </div>
+  </div>
+  <ng-template #loading>
+    <p class="center">Loading...</p>
+  </ng-template>
+</div>
